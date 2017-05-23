@@ -88,25 +88,13 @@
                 <div class="layout-breadcrumb">
                     <Breadcrumb>
                         <Breadcrumb-item href="#">首页</Breadcrumb-item>
-                        <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
-                        <Breadcrumb-item>某应用</Breadcrumb-item>
+                        <Breadcrumb-item href="#">设置</Breadcrumb-item>
+                        <Breadcrumb-item></Breadcrumb-item>
                     </Breadcrumb>
                 </div>
                 <div class="layout-content">
                     <div class="layout-content-main">
-                        <i-circle :percent="80">
-                            <span class="demo-i-circle-inner" style="font-size:24px">80%</span>
-                        </i-circle>
-                        <i-circle :percent="100" stroke-color="#5cb85c">
-                            <Icon type="ios-checkmark-empty" size="60" style="color:#5cb85c"></Icon>
-                        </i-circle>
-                        <i-circle :percent="35" stroke-color="#ff5500">
-                            <span class="demo-i-circle-inner">
-                                    <Icon type="ios-close-empty" size="50" style="color:#ff5500"></Icon>
-                                </span>
-                        </i-circle>
-    
-                        <Table stripe :columns="columns1" :data="data1"></Table>
+                        <router-view></router-view>
                     </div>
                 </div>
                 <div class="layout-copy">
@@ -117,5 +105,64 @@
     </div>
 </template>
 <script>
-    import './dashboard.js'
+export default {
+    data() {
+        return {
+            spanLeft: 5,
+            spanRight: 19,
+            columns1: [
+                {
+                    title: '姓名',
+                    key: 'name'
+                },
+                {
+                    title: '年龄',
+                    key: 'age'
+                },
+                {
+                    title: '地址',
+                    key: 'address'
+                }
+            ],
+            data1: [
+                {
+                    name: '王小明',
+                    age: 18,
+                    address: '北京市朝阳区芍药居'
+                },
+                {
+                    name: '张小刚',
+                    age: 25,
+                    address: '北京市海淀区西二旗'
+                },
+                {
+                    name: '李小红',
+                    age: 30,
+                    address: '上海市浦东新区世纪大道'
+                },
+                {
+                    name: '周小伟',
+                    age: 26,
+                    address: '深圳市南山区深南大道'
+                }
+            ]
+        }
+    },
+    computed: {
+        iconSize() {
+            return this.spanLeft === 5 ? 14 : 24;
+        }
+    },
+    methods: {
+        toggleClick() {
+            if (this.spanLeft === 5) {
+                this.spanLeft = 2;
+                this.spanRight = 22;
+            } else {
+                this.spanLeft = 5;
+                this.spanRight = 19;
+            }
+        }
+    }
+}
 </script>
