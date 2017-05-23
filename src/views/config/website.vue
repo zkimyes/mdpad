@@ -50,7 +50,7 @@
                 <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
             </Form-item>
             <Form-item>
-                <Button type="primary">提交</Button>
+                <Button @click="submit()" type="primary">提交</Button>
                 <Button type="ghost" style="margin-left: 8px">取消</Button>
             </Form-item>
         </Form>
@@ -72,6 +72,11 @@ export default {
                 slider: [20, 50],
                 textarea: ''
             }
+        }
+    },
+    methods:{
+        submit:function(){
+            alert(JSON.stringify(this.formItem,null,5))
         }
     }
 }

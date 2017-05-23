@@ -69,6 +69,14 @@
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">选项 1</span>
                     </Menu-item>
+                     <Submenu name="2">
+                        <template slot="title">
+                            <Icon type="ios-people"></Icon>
+                            用户管理
+                        </template>
+                        <Menu-item name="2-1">新增用户</Menu-item>
+                        <Menu-item name="2-2">活跃用户</Menu-item>
+                    </Submenu>
                     <Menu-item name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>
                         <span class="layout-text">选项 2</span>
